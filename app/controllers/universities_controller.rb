@@ -4,7 +4,7 @@ class UniversitiesController < ApplicationController
   respond_to :json, :html
 
   def index
-    @universities = University.all
+    @universities = University.all.paginate(:page => params[:page], :per_page => 15)
     respond_with(@universities)
   end
 

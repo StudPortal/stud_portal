@@ -17,5 +17,9 @@
           %td
             = link_to t('.edit', :default => t("helpers.links.edit")), edit_university_faculty_department_lector_path(@university, @faculty, @department, lector), :class => 'btn btn-default btn-xs'
             = link_to t('.destroy', :default => t("helpers.links.destroy")), university_faculty_department_lector_path(@university, @faculty, @department, lector), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
+
+%center
+  = will_paginate @lectors, renderer: BootstrapPagination::Rails
+
 - if user_signed_in?
   = link_to t('.new', :default => t("helpers.links.new")), new_university_faculty_department_lector_path(@university, @faculty, @department), :class => 'btn btn-primary'

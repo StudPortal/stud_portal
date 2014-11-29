@@ -8,7 +8,12 @@ namespace :populate do
     100.times do
 
       city = Faker::Address.city
-      university = University.create(name: "#{city} University", adress: "#{city}, #{Faker::Address.street_address}")
+      university = University.create(
+        name: "#{city} University", 
+        adress: "#{city}, #{Faker::Address.street_address}",
+        lat: Faker::Address.latitude,
+        lng: Faker::Address.longitude
+      )
 
       10.times do 
 
