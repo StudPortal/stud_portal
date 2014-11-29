@@ -35,6 +35,8 @@ gem 'devise-i18n', '~> 0.11.2'
 gem 'devise-bootstrap-views'
 
 gem 'geocoder'
+gem 'mechanize'
+gem 'faker'
 
 gem 'settingslogic'
 gem 'will_paginate_mongoid'
