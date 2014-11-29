@@ -11,8 +11,11 @@
       %tr
         %td= link_to faculty.name, university_faculty_path(@university, faculty)
         %td
-          = link_to t('.edit', :default => t("helpers.links.edit")), edit_university_faculty_path(@university, faculty), :class => 'btn btn-default btn-xs'
-          = link_to t('.destroy', :default => t("helpers.links.destroy")), university_faculty_path(@university, faculty), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
+          - if user_signed_in?
+            = link_to t('.edit', :default => t("helpers.links.edit")), edit_university_faculty_path(@university, faculty), :class => 'btn btn-default btn-xs'
+            = link_to t('.destroy', :default => t("helpers.links.destroy")), university_faculty_path(@university, faculty), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
+            = link_to 'add department', new_university_faculty_department_path(@university, faculty), :class => 'btn btn-info btn-xs'
           = link_to 'departments', university_faculty_departments_path(@university, faculty), :class => 'btn btn-success btn-xs'
-          = link_to 'add department', new_university_faculty_department_path(@university, faculty), :class => 'btn btn-info btn-xs'
-= link_to t('.new', :default => t("helpers.links.new")), new_university_faculty_path(@university), :class => 'btn btn-primary'
+
+- if user_signed_in?
+  = link_to t('.new', :default => t("helpers.links.new")), new_university_faculty_path(@university), :class => 'btn btn-primary'
