@@ -9,10 +9,6 @@
     .controls
       = f.text_field :address, class: 'form-control', required: true
     = error_span(@university[:address])
-  .form-group
-    = f.label :coordinates, class: 'control-label'
-    .controls
-      = f.text_field :coordinates, class: 'form-control', required: false
-    = error_span(@university[:coordinates])
+    
   = f.submit nil,class: 'btn btn-primary'
   = link_to t('.cancel', :default => t("helpers.links.cancel")), universities_path, :class => 'btn btn-default'

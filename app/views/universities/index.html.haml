@@ -9,7 +9,7 @@
   %tbody
     - @universities.each do |university|
       %tr
-        %td= link_to university.name, university_path(university)
+        %td= link_to university.name, university_path(university), 'data-no-turbolink' => true
         %td
           - if user_signed_in?
             = link_to t('.edit', :default => t("helpers.links.edit")), edit_university_path(university), :class => 'btn btn-default btn-xs'

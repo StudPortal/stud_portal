@@ -7,6 +7,8 @@
 */
 
 .content{ margin-top: -50px; }
+.map_panel{ width: 830px; }
+#map{ width: 800px; height: 400px; }
 
 @import url("//fonts.googleapis.com/css?family=Roboto:300,400,500");
 /*!

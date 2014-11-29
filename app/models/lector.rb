@@ -4,5 +4,5 @@ class Lector
   field :name,     type: String
   field :position, type: String
 
-  embedded_in :department
+  belongs_to :department
 end

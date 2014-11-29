@@ -7,7 +7,7 @@ class University
 
   field :coordinates, type: Array
 
-  embeds_many :faculties
+  has_many :faculties
 
   geocoded_by :address
   after_validation :geocode
