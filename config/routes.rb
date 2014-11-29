@@ -3,11 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users
-  resources :groups
-  resources :departments
-  resources :faculties
-  resources :universities
-
+  
+  #resources :faculties
   resources :universities do
     resources :faculties do
       resources :departments do

@@ -1,44 +1,51 @@
 class GroupsController < ApplicationController
+  before_action :set_department
   before_action :set_group, only: [:show, :edit, :update, :destroy]
 
   respond_to :json, :html
 
   def index
-    @groups = Group.all
+    @groups = @department.groups.all
     respond_with(@groups)
   end
 
   def show
-    respond_with(@group)
+    respond_with(@university, @faculty, @department, @group)
   end
 
   def new
-    @group = Group.new
-    respond_with(@group)
+    @group = @department.groups.new
+    respond_with(@university, @faculty, @department, @group)
   end
 
   def edit
   end
 
   def create
-    @group = Group.new(group_params)
+    @group = @department.groups.new(group_params)
     @group.save
-    respond_with(@group)
+    respond_with(@university, @faculty, @department, @group)
   end
 
   def update
     @group.update(group_params)
-    respond_with(@group)
+    respond_with(@university, @faculty, @department, @group)
   end
 
   def destroy
     @group.destroy
-    respond_with(@group)
+    respond_with(@university, @faculty, @department, @group)
   end
 
   private
     def set_group
-      @group = Group.find(params[:id])
+      @group = @department.groups.find(params[:id])
+    end
+
+    def set_department
+      @university = University.find params[:university_id]
+      @faculty    = @university.faculties.find params[:faculty_id]
+      @department = @faculty.departments.find params[:department_id]
     end
 
     def group_params

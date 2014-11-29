@@ -8,6 +8,6 @@
   = @department.name
 
 
-= link_to t('.back', :default => t("helpers.links.back")), departments_path, :class => 'btn btn-default'
-= link_to t('.edit', :default => t("helpers.links.edit")), edit_department_path(@department), :class => 'btn btn-default'
-= link_to t('.destroy', :default => t("helpers.links.destroy")), department_path(@department), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
+= link_to t('.back', :default => t("helpers.links.back")), university_faculty_departments_path(@university, @faculty), :class => 'btn btn-default'
+= link_to t('.edit', :default => t("helpers.links.edit")), edit_university_faculty_department_path(@university, @faculty, @department), :class => 'btn btn-default'
+= link_to t('.destroy', :default => t("helpers.links.destroy")), university_faculty_department_path(@university, @faculty, @department), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

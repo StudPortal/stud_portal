@@ -1,8 +1,8 @@
-= form_for @group, html: { class: "form form-horizontal group" } do |f|
+= form_for [@university, @faculty, @department, @group], html: { class: "form form-horizontal group" } do |f|
   .form-group
     = f.label :name, class: 'control-label'
     .controls
       = f.text_field :name, class: 'form-control', required: true
     = error_span(@group[:name])
   = f.submit nil,class: 'btn btn-primary'
-  = link_to t('.cancel', :default => t("helpers.links.cancel")), groups_path, :class => 'btn btn-default'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), university_faculty_department_groups_path(@university, @faculty, @department), :class => 'btn btn-default'

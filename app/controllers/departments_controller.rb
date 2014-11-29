@@ -1,44 +1,50 @@
 class DepartmentsController < ApplicationController
+  before_action :set_faculty
   before_action :set_department, only: [:show, :edit, :update, :destroy]
 
   respond_to :json, :html
 
   def index
-    @departments = Department.all
+    @departments = @faculty.departments.all
     respond_with(@departments)
   end
 
   def show
-    respond_with(@department)
+    respond_with(@university, @faculty, @department)
   end
 
   def new
-    @department = Department.new
-    respond_with(@department)
+    @department = @faculty.departments.new
+    respond_with(@university, @faculty, @department)
   end
 
   def edit
   end
 
   def create
-    @department = Department.new(department_params)
+    @department = @faculty.departments.new(department_params)
     @department.save
-    respond_with(@department)
+    respond_with(@university, @faculty, @department)
   end
 
   def update
     @department.update(department_params)
-    respond_with(@department)
+    respond_with(@university, @faculty, @department)
   end
 
   def destroy
     @department.destroy
-    respond_with(@department)
+    respond_with(@university, @faculty, @department)
   end
 
   private
     def set_department
-      @department = Department.find(params[:id])
+      @department = @faculty.departments.find(params[:id])
+    end
+
+    def set_faculty
+      @university = University.find params[:university_id]
+      @faculty    = @university.faculties.find params[:faculty_id]
     end
 
     def department_params
