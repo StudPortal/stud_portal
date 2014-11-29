@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :faculties do
       resources :departments do
         resources :groups
+        resources :lectors
       end
     end
   end
