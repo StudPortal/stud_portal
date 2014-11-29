@@ -7,7 +7,7 @@
   .form-group
     = f.label :address, class: 'control-label'
     .controls
-      = f.text_field :address, class: 'form-control', required: false
+      = f.text_field :address, class: 'form-control', required: true
     = error_span(@university[:address])
   .form-group
     = f.label :coordinates, class: 'control-label'

@@ -42,6 +42,8 @@ class UniversitiesController < ApplicationController
     end
 
     def university_params
-      params.require(:university).permit(:name, :address, :coordinates)
+      params = params.require(:university).permit(:name, :address, :coordinates)      
+      params["coordinates"] = params["coordinates"][1..-2].split(',') if params["coordinates"]
+      params    
     end
 end
