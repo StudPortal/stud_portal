@@ -20,18 +20,18 @@
 
   %body
     .navbar.navbar-default.navbar-static-top
+      %a.navbar-brand(href="/") Students Portal
       .container
         %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
-        %a.navbar-brand(href="/") Students Portal
         .navbar-collapse.collapse.navbar-responsive-collapse
           %ul.nav.navbar-nav
             %li= link_to "Universities", "/universities"
             %li= link_to "Users", "/users" if user_signed_in?
           - if user_signed_in?
-            %ul.nav.navbar-nav.pull-right
+            %ul.nav.navbar-nav.pull-right.hidden-sm
               %li.divider-vertical
               %li
                 %a{:href => "#"}= current_user.email
