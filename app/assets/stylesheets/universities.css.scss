@@ -6,7 +6,26 @@ h1{
   font-size: 2em;
 }
 
-tr{
-  height: 50px;
+table{
+  a{
+    color: rgb(5,5,5) !important;
+  }
+  a:hover{
+    background: rgb(200,200, 200);
+  }
+
+  a:link{
+    text-decoration: none !important;
+  }
 }
+
+tbody{
+  td{
+      .btn{
+        border-radius: 5px;
+      }
+  }
+}
+
+
 
