@@ -1,0 +1,25 @@
+%h1 Listing universities
+
+%table
+  %tr
+    %th Name
+    %th Adress
+    %th Lat
+    %th Lng
+    %th
+    %th
+    %th
+
+  - @universities.each do |university|
+    %tr
+      %td= university.name
+      %td= university.adress
+      %td= university.lat
+      %td= university.lng
+      %td= link_to 'Show', university
+      %td= link_to 'Edit', edit_university_path(university)
+      %td= link_to 'Destroy', university, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New University', new_university_path
