@@ -1,7 +1,7 @@
 class FacultiesController < ApplicationController
   before_action :set_faculty, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html
+  respond_to :json, :html
 
   def index
     @faculties = Faculty.all

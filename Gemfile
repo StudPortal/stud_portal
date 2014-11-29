@@ -32,6 +32,7 @@ gem 'font-awesome-rails'
 
 gem 'devise'
 gem 'devise-i18n', '~> 0.11.2'
+gem 'devise-bootstrap-views'
 
 gem 'geocoder'
 

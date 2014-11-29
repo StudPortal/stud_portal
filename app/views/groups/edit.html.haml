@@ -1,7 +1,4 @@
-%h1 Editing group
-
-= render 'form'
-
-= link_to 'Show', @group
-\|
-= link_to 'Back', groups_path
+- model_class = Group
+.page-header
+  %h1=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize
+= render :partial => "form"

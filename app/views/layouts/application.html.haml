@@ -25,26 +25,24 @@
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
-        %a.navbar-brand(href="#") StudPortal
-        .navbar-collapse.collapse.navbar-responsive-collapse
-          %ul.nav.navbar-nav
-            %li= link_to "Link 1", "/path1"
-            %li= link_to "Link 2", "/path2"
-            %li= link_to "Link 3", "/path3"
-            %li= link_to "Link 3", "/path3"
+        %a.navbar-brand(href="#") Students Portal
+        - if user_signed_in?
+          .navbar-collapse.collapse.navbar-responsive-collapse
+            %ul.nav.navbar-nav
+              %li= link_to "Universities", "/universities"
+              %li= link_to "Faculties",    "/faculties"
+              %li= link_to "Departments",  "/departments"
+              %li= link_to "Groups",       "/groups"
+            
+            %ul.nav.navbar-nav.pull-right
+              %li.divider-vertical
+              %li
+                %a{:href => "#"}= current_user.email
+              %li
+                = link_to '<span class="glyphicon glyphicon-edit"></span>'.html_safe, edit_user_registration_path, :class => 'navbar-link'
+              %li
+                = link_to '<span class="glyphicon glyphicon-log-out"></span>'.html_safe, destroy_user_session_path, method: :delete, :class => 'no_ajaxify navbar-link'
 
     .container
-      .row
-        .col-lg-9
-          = bootstrap_flash
-          = yield
-        .col-lg-3
-          .well.sidebar-nav
-            %h3 Sidebar
-            %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
-      %footer
-        %p &copy; Company 2014
+      = bootstrap_flash
+      = yield

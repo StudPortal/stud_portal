@@ -1,22 +1,23 @@
-= form_for @university do |f|
-  - if @university.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@university.errors.count, "error")} prohibited this university from being saved:"
-      %ul
-        - @university.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :adress
-    = f.text_field :adress
-  .field
-    = f.label :lat
-    = f.text_field :lat
-  .field
-    = f.label :lng
-    = f.text_field :lng
-  .actions
-    = f.submit 'Save'
+= form_for @university, html: { class: "form form-horizontal university" } do |f|
+  .form-group
+    = f.label :name, class: 'control-label'
+    .controls
+      = f.text_field :name, class: 'form-control', required: true
+    = error_span(@university[:name])
+  .form-group
+    = f.label :adress, class: 'control-label'
+    .controls
+      = f.text_field :adress, class: 'form-control', required: true
+    = error_span(@university[:adress])
+  .form-group
+    = f.label :lat, class: 'control-label'
+    .controls
+      = f.text_field :lat, class: 'form-control', required: true
+    = error_span(@university[:lat])
+  .form-group
+    = f.label :lng, class: 'control-label'
+    .controls
+      = f.text_field :lng, class: 'form-control', required: true
+    = error_span(@university[:lng])
+  = f.submit nil,class: 'btn btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), universities_path, :class => 'btn btn-default'

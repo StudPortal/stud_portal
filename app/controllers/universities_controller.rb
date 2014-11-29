@@ -1,7 +1,7 @@
 class UniversitiesController < ApplicationController
   before_action :set_university, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html
+  respond_to :json, :html
 
   def index
     @universities = University.all

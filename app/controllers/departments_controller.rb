@@ -1,7 +1,7 @@
 class DepartmentsController < ApplicationController
   before_action :set_department, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html
+  respond_to :json, :html
 
   def index
     @departments = Department.all
