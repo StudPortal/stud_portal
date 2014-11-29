@@ -5,19 +5,14 @@
       = f.text_field :name, class: 'form-control', required: true
     = error_span(@university[:name])
   .form-group
-    = f.label :adress, class: 'control-label'
+    = f.label :address, class: 'control-label'
     .controls
-      = f.text_field :adress, class: 'form-control', required: true
-    = error_span(@university[:adress])
+      = f.text_field :address, class: 'form-control', required: false
+    = error_span(@university[:address])
   .form-group
-    = f.label :lat, class: 'control-label'
+    = f.label :coordinates, class: 'control-label'
     .controls
-      = f.text_field :lat, class: 'form-control', required: true
-    = error_span(@university[:lat])
-  .form-group
-    = f.label :lng, class: 'control-label'
-    .controls
-      = f.text_field :lng, class: 'form-control', required: true
-    = error_span(@university[:lng])
+      = f.text_field :coordinates, class: 'form-control', required: false
+    = error_span(@university[:coordinates])
   = f.submit nil,class: 'btn btn-primary'
   = link_to t('.cancel', :default => t("helpers.links.cancel")), universities_path, :class => 'btn btn-default'

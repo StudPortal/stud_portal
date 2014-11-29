@@ -1,10 +1,14 @@
 class University
   include Mongoid::Document
+  include Geocoder::Model::Mongoid
 
-  field :name,   type: String
-  field :adress, type: String
-  field :lat,    type: Float
-  field :lng,    type: Float
+  field :name,      type: String
+  field :address,   type: String
+
+  field :coordinates, type: Array
 
   embeds_many :faculties
+
+  geocoded_by :address
+  after_validation :geocode
 end

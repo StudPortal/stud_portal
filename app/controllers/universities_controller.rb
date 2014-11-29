@@ -42,6 +42,6 @@ class UniversitiesController < ApplicationController
     end
 
     def university_params
-      params.require(:university).permit(:name, :adress, :lat, :lng)
+      params.require(:university).permit(:name, :address, :coordinates)
     end
 end

@@ -7,17 +7,17 @@
   %br
   = @university.name
 %p
-  %strong= model_class.human_attribute_name(:adress) + ':'
+  %strong= model_class.human_attribute_name(:address) + ':'
   %br
-  = @university.adress
+  = @university.address
 %p
-  %strong= model_class.human_attribute_name(:lat) + ':'
+  %strong Latitude:
   %br
-  = @university.lat
+  = @university.coordinates.first
 %p
-  %strong= model_class.human_attribute_name(:lng) + ':'
+  %strong Longitude:
   %br
-  = @university.lng
+  = @university.coordinates.first
 
 
 = link_to t('.back', :default => t("helpers.links.back")), universities_path, :class => 'btn btn-default'
