@@ -15,7 +15,7 @@
           .btn-group.group
             %button.btn.btn-default.btn-xs.like{:type => 'button'} like
             %button.btn.btn-primary.btn-xs.active.vote_count= university.vote
-            %button.btn.btn-default.btn-xs.like{:type => 'button'} dislike
+            %button.btn.btn-default.btn-xs.dislike{:type => 'button'} dislike
         %td
           - if user_signed_in?
             = link_to t('.edit', :default => t("helpers.links.edit")), edit_university_path(university), :class => 'btn btn-default btn-xs'
