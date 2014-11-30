@@ -5,22 +5,20 @@
   %thead
     %tr
       %th= model_class.human_attribute_name(:name)
-      %th.hidden-sm= model_class.human_attribute_name(:adress)
+      %th.hidden-sm= model_class.human_attribute_name(:address)
       %th Raiting
       %th=t '.actions', :default => t("helpers.actions")
   %tbody
     - @universities.each do |university|
       %tr
         %td= link_to university.name, university_path(university)
-        %td.hidden-sm= university.adress
-        -#%td= university.lat
-        -#%td= university.lng
+        %td.hidden-sm= university.address
         %td= link_to university.name, university_path(university), 'data-no-turbolink' => true
         %td
           .btn-group.group
-            %button.btn.btn-default.btn-xs{type: 'button'} like
+            %button.btn.btn-default.btn-xs.like{type: 'button'} like
             %button.btn.btn-primary.btn-xs.active= university.vote
-            %button.btn.btn-default.btn-xs{type: 'button'} dislike
+            %button.btn.btn-default.btn-xs.dislike{type: 'button'} dislike
         %td
           - if user_signed_in?
             = link_to t('.edit', :default => t("helpers.links.edit")), edit_university_path(university), :class => 'btn btn-primary btn-xs'
