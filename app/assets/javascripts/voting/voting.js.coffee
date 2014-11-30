@@ -1,5 +1,5 @@
 $(document).ready ->
-  $(".btn-group").on "click", ".like", ->
+  $(".like").click ->
     _this  = this
     tmpUrl = $(this).parent().parent().parent().find("a.link-to").attr("href")
     console.log tmpUrl
@@ -14,7 +14,7 @@ $(document).ready ->
 
     return
 
-  $(".btn-group").on "click", ".dislike", ->
+  $(".dislike").click ->
     _this  = this
     tmpUrl = $(this).parent().parent().parent().find("a.link-to").attr("href")
     console.log tmpUrl
