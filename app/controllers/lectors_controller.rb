@@ -1,4 +1,6 @@
 class LectorsController < ApplicationController
+  extend VotesSubcontroller
+  
   before_action :set_department
   before_action :set_lector, only: [:show, :edit, :update, :destroy]
 
@@ -49,6 +51,6 @@ class LectorsController < ApplicationController
     end
 
     def lector_params
-      params.require(:lector).permit(:name, :position)
+      params.require(:lector).permit(:name, :position, :vote)
     end
 end

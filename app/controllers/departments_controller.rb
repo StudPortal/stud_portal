@@ -1,4 +1,6 @@
 class DepartmentsController < ApplicationController
+  include VotesSubcontroller
+
   before_action :set_faculty
   before_action :set_department, only: [:show, :edit, :update, :destroy]
 
@@ -48,6 +50,6 @@ class DepartmentsController < ApplicationController
     end
 
     def department_params
-      params.require(:department).permit(:name)
+      params.require(:department).permit(:name, :vote)
     end
 end

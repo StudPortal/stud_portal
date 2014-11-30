@@ -1,4 +1,6 @@
 class GroupsController < ApplicationController
+  extend VotesSubcontroller
+  
   before_action :set_department
   before_action :set_group, only: [:show, :edit, :update, :destroy]
 
@@ -49,6 +51,6 @@ class GroupsController < ApplicationController
     end
 
     def group_params
-      params.require(:group).permit(:name)
+      params.require(:group).permit(:name, :vote)
     end
 end

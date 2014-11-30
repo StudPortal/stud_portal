@@ -38,6 +38,6 @@
                 = link_to '<span class="glyphicon glyphicon-log-out"></span>'.html_safe, destroy_user_session_path, method: :delete, :class => 'no_ajaxify navbar-link'
 
     .container
-      .content
       = bootstrap_flash
-      = yield
+      .content
+        = yield

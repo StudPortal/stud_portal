@@ -5,6 +5,7 @@
   %thead
     %tr
       %th= model_class.human_attribute_name(:name)
+      %th Raiting
       %th= model_class.human_attribute_name(:position)
       - if user_signed_in?
         %th=t '.actions', :default => t("helpers.actions")
@@ -13,6 +14,11 @@
       %tr
         %td= link_to lector.name, university_faculty_department_lector_path(@university, @faculty, @department, lector)
         %td= lector.position
+        %td
+          .btn-group.group
+            %button.btn.btn-default.btn-xs{type: 'button'} like
+            %button.btn.btn-primary.btn-xs.active= lector.vote
+            %button.btn.btn-default.btn-xs{type: 'button'} dislike
         - if user_signed_in?
           %td
             = link_to t('.edit', :default => t("helpers.links.edit")), edit_university_faculty_department_lector_path(@university, @faculty, @department, lector), :class => 'btn btn-default btn-xs'
