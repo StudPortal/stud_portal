@@ -1,4 +1,6 @@
 class FacultiesController < ApplicationController
+  extend VotesSubcontroller
+  
   before_action :set_university
   before_action :set_faculty, only: [:show, :edit, :update, :destroy]
 
@@ -47,6 +49,6 @@ class FacultiesController < ApplicationController
     end
 
     def faculty_params
-      params.require(:faculty).permit(:name)
+      params.require(:faculty).permit(:name, :vote)
     end
 end

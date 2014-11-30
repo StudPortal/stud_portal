@@ -5,12 +5,18 @@
   %thead
     %tr
       %th= model_class.human_attribute_name(:name)
+      %th Raiting
       - if user_signed_in?
         %th=t '.actions', :default => t("helpers.actions")
   %tbody
     - @groups.each do |group|
       %tr
         %td= link_to group.name, university_faculty_department_group_path(@university, @faculty, @department, group)
+        %td
+          .btn-group.group
+            %button.btn.btn-default.btn-xs{type: 'button'} like
+            %button.btn.btn-primary.btn-xs.active= group.vote
+            %button.btn.btn-default.btn-xs{type: 'button'} dislike
         - if user_signed_in?
           %td
             = link_to t('.edit', :default => t("helpers.links.edit")), edit_university_faculty_department_group_path(@university, @faculty, @department, group), :class => 'btn btn-default btn-xs'

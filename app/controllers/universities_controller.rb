@@ -1,4 +1,6 @@
 class UniversitiesController < ApplicationController
+  extend VotesSubcontroller
+
   before_action :set_university, only: [:show, :edit, :update, :destroy]
 
   respond_to :json, :html
@@ -42,6 +44,6 @@ class UniversitiesController < ApplicationController
     end
 
     def university_params
-      params = params.require(:university).permit(:name, :address, :coordinates)
+      params.require(:university).permit(:name, :address, :coordinates, :vote)
     end
 end
