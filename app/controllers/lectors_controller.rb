@@ -1,5 +1,5 @@
 class LectorsController < ApplicationController
-  extend VotesSubcontroller
+  include VotesSubcontroller
   
   before_action :set_department
   before_action :set_lector, only: [:show, :edit, :update, :destroy]
