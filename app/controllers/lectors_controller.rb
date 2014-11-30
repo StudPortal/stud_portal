@@ -7,7 +7,7 @@ class LectorsController < ApplicationController
   respond_to :html
 
   def index
-    @lectors = @department.lectors.paginate(:page => params[:page], :per_page => 15)
+    @lectors = @department.lectors.paginate(page: params[:page], per_page: Settings.pagination)
     respond_with(@lectors)
   end
 

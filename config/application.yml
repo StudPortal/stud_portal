@@ -1,0 +1,14 @@
+defaults: &defaults
+  admin:
+    email:    admin@example.com
+    password: admin12345
+  pagination: 15
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

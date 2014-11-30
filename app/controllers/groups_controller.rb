@@ -7,7 +7,7 @@ class GroupsController < ApplicationController
   respond_to :json, :html
 
   def index
-    @groups = @department.groups.paginate(:page => params[:page], :per_page => 15)
+    @groups = @department.groups.paginate(page: params[:page], per_page: Settings.pagination)
     respond_with(@groups)
   end
 
