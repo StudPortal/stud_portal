@@ -1,25 +1,25 @@
-- model_class = University
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human.titleize
-
-%p
-  %strong= model_class.human_attribute_name(:name) + ':'
-  %br
-  = @university.name
-%p
-  %strong= model_class.human_attribute_name(:address) + ':'
-  %br
-  = @university.address
-
-.panel.panel-default.map_panel
-  .panel-body
-    #map
-
-%br
-= link_to t('.back', :default => t("helpers.links.back")), universities_path, :class => 'btn btn-default'
-= link_to t('.edit', :default => t("helpers.links.edit")), edit_university_path(@university), :class => 'btn btn-default'
-= link_to t('.destroy', :default => t("helpers.links.destroy")), university_path(@university), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
-
+  %h3 #{@university.name}
+.row
+  .col-md-6
+    Address: 
+    %strong #{@university.address}
+  .col-md-6
+    %small ( [#{@university.coordinates.first}, #{@university.coordinates.last}] )
+%br  
+.row
+  .col-md-12
+    .panel.panel-default.map_panel
+      .panel-body
+        #map
+.row
+  .col-md-4
+    = link_to t('.back', :default => t("helpers.links.back")), universities_path, :class => 'btn btn-default'
+    = link_to t('.edit', :default => t("helpers.links.edit")), edit_university_path(@university), :class => 'btn btn-default'
+    = link_to t('.destroy', :default => t("helpers.links.destroy")), university_path(@university), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
+  .col-md-8
+    SOCIAL SHARE
+    
 :javascript
   function initialize() {
     var myLatlng = new google.maps.LatLng(#{@university.coordinates.first},#{@university.coordinates.last});
