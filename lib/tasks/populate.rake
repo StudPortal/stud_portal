@@ -5,9 +5,7 @@ namespace :populate do
   desc "Generate fake data for DB"
   task fake: :environment do
 
-    FAKE_COUNT = 20
-
-    print '\n'
+    FAKE_COUNT = Settings.fake_records.count
     
     FAKE_COUNT.times do
       
@@ -18,19 +16,31 @@ namespace :populate do
         coordinates: [ Faker::Address.latitude, Faker::Address.longitude ],
         vote:        rand(100)
       )
-      print 'U'
 
       FAKE_COUNT.times do
-        faculty = university.faculties.create(name: Faker::Lorem.word, vote: rand(100))
-        print 'f'
+        faculty = university.faculties.create(
+          name: Faker::Lorem.word, 
+          vote: rand(100)
+        )
+        
         FAKE_COUNT.times do 
-          department = faculty.departments.create(name: Faker::Lorem.word, vote: rand(100))
-          print 'd'
+        
+          department = faculty.departments.create(
+            name: Faker::Lorem.word, 
+            vote: rand(100)
+          )
+
           FAKE_COUNT.times do 
-            department.groups.create(name: Faker::Lorem.sentence(3), vote: rand(100))
-            print 'g'
-            department.lectors.create(name: Faker::Name.name, position: ['lector', 'director', 'professor'].sample, vote: rand(100))
-            print 'l'
+            department.groups.create(
+              name: Faker::Lorem.sentence(3), 
+              vote: rand(100)
+            )
+
+            department.lectors.create(
+              name:     Faker::Name.name, 
+              position: ['lector', 'director', 'professor'].sample, 
+              vote:     rand(100)
+            )
           end
         
         end
@@ -38,8 +48,6 @@ namespace :populate do
       end
     
     end
-    
-    print '\n'
 
   end
 end    
