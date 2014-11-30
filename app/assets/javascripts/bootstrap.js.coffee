@@ -2,7 +2,7 @@ jQuery ->
   $("a[rel~=popover], .has-popover").popover()
   $("a[rel~=tooltip], .has-tooltip").tooltip()
 
-$(document).on "page:load", ready ->
+$(document).ready ->
   $(".like").click ->
     _this  = this
     tmpUrl = $(this).parent().parent().parent().find("a.link-to").attr("href")

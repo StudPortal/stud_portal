@@ -5,6 +5,7 @@
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
 */
+.logo img{ width: 50px; height: 50px; position: relative; margin-top:-15px;}
 .new_session{ width: 450px; text-align: left; }
 .content{ position: relative; margin-top: -50px;}
 .map_panel{ width: 830px; }
