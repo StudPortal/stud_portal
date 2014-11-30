@@ -7,7 +7,7 @@ class DepartmentsController < ApplicationController
   respond_to :json, :html
 
   def index
-    @departments = @faculty.departments.all.paginate(:page => params[:page], :per_page => 15)
+    @departments = @faculty.departments.all.paginate(page: params[:page], per_page: Settings.pagination)
     respond_with(@departments)
   end
 

@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.1.6'
-gem 'grape'
 
 gem 'mongoid', '~> 4.0.0' 
 gem 'mongoid-sadstory'
@@ -28,6 +27,7 @@ gem 'bootstrap_form-datetimepicker'
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
 gem 'font-awesome-rails'
+gem "social-buttons"
 
 gem 'devise'
 gem 'devise-i18n', '~> 0.11.2'

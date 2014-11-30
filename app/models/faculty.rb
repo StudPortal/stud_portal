@@ -6,5 +6,5 @@ class Faculty
   field :vote, type: Integer
 
   belongs_to :university
-  has_many :departments
+  has_many   :departments
 end

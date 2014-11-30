@@ -7,8 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create!(
-  email:                 "admin@example.com", 
-  password:              "admin12345", 
-  password_confirmation: "admin12345",
-  role:                  "admin"
+  email:                 Settings.admin.email, 
+  password:              Settings.admin.password, 
+  password_confirmation: Settings.admin.password
 ) 
