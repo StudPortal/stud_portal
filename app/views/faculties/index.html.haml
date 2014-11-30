@@ -10,12 +10,12 @@
   %tbody
     - @faculties.each do |faculty|
       %tr
-        %td= link_to faculty.name, university_faculty_path(@university, faculty)
+        %td= link_to faculty.name, university_faculty_path(@university, faculty), class: 'link-to'
         %td
           .btn-group.group
-            %button.btn.btn-default.btn-xs{type: 'button'} like
-            %button.btn.btn-primary.btn-xs.active= faculty.vote
-            %button.btn.btn-default.btn-xs{type: 'button'} dislike
+            %button.btn.btn-default.btn-xs.like{type: 'button'} like
+            %button.btn.btn-primary.btn-xs.active.vote_count= faculty.vote
+            %button.btn.btn-default.btn-xs.dislike{type: 'button'} dislike
         %td
           - if user_signed_in?
             = link_to t('.edit', :default => t("helpers.links.edit")), edit_university_faculty_path(@university, faculty), :class => 'btn btn-default btn-xs'
@@ -28,3 +28,5 @@
 
 - if user_signed_in?
   = link_to t('.new', :default => t("helpers.links.new")), new_university_faculty_path(@university), :class => 'btn btn-primary'
+
+= javascript_include_tag "voting/voting"
