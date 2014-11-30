@@ -1,10 +1,11 @@
 - model_class = Department
 .page-header
   .row
-    .col-md-10
+    .col-md-9
       %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
-    .col-md-2
+    .col-md-3
       %span=link_to 'Excel Report', xlsx_university_faculty_departments_path(@university, @faculty), class: 'btn btn-sm btn-success excel-btn'
+      %span=link_to 'Pdf Report', pdf_university_faculty_departments_path(@university, @faculty), class: 'btn btn-sm btn-danger excel-btn'
 %table.table.table-striped
   %thead
     %tr

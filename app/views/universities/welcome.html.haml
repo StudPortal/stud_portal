@@ -1,1 +1,25 @@
-welcome.html.haml
+= javascript_include_tag "//www.google.com/jsapi", "chartkick"
+
+%br
+%br
+%br
+
+.container-fluid
+  .row
+    .col-md-4
+      %b Universities Best Raiting
+    .col-md-4
+      %b Faculties Best Raiting
+    .col-md-4
+      %b Lectors Best Raiting
+
+  .row
+    .col-md-4
+      .ch1{style: 'margin-legt: -30px'}
+        = pie_chart University.pluck(:name, :vote)
+    .col-md-4
+      .ch1{style: 'margin-legt: -30px'}
+        = pie_chart University.pluck(:name, :vote)
+    .col-md-4
+      .ch1{style: 'margin-legt: -30px'}
+        = pie_chart University.pluck(:name, :vote)

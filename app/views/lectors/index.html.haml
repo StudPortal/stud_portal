@@ -1,10 +1,10 @@
 - model_class = Lector
 .page-header
   .row
-    .col-md-10
+    .col-md-9
       %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
-    .col-md-2
-      %span=link_to 'Excel Report', xlsx_university_faculty_department_lectors_path(@university, @faculty, @department), class: 'btn btn-sm btn-success excel-btn'
+    .col-md-3
+      %span=link_to 'Pdf Report', pdf_university_faculty_department_lectors_path(@university, @faculty, @department), class: 'btn btn-sm btn-danger excel-btn'
 %table.table.table-striped
   %thead
     %tr

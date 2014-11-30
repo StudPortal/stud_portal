@@ -33,6 +33,7 @@ gem 'devise-i18n', '~> 0.11.2'
 gem 'devise-bootstrap-views'
 
 gem 'geocoder'
+gem 'chartkick'
 
 gem 'mechanize'
 gem 'faker'

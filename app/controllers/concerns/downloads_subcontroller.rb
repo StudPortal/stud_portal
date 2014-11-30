@@ -22,4 +22,17 @@ module DownloadsSubcontroller
     send_data package.to_stream.read, filename: file_name, type: file_format
   end
 
+  def pdf
+    model = self.class.name.sub('Controller', '').singularize
+    @data = model.constantize.all
+ 
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = ReportPdf.new(@data)
+        send_data pdf.render, filename: "#{model}.pdf", type: 'application/pdf'
+      end
+    end    
+  end
+
 end

@@ -12,6 +12,7 @@ class UniversitiesController < ApplicationController
   end
 
   def welcome
+    @data = University.pluck(:vote).map{ |x| x = x.to_f / 101 }
   end
 
   def show
