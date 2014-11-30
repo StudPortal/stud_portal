@@ -1,5 +1,6 @@
 class DepartmentsController < ApplicationController
   include VotesSubcontroller
+  include DownloadsSubcontroller
 
   before_action :set_faculty
   before_action :set_department, only: [:show, :edit, :update, :destroy]

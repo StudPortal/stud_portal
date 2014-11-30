@@ -24,7 +24,7 @@ $(document).ready ->
     console.log tmpUrl
     $.ajax(
       type: "PUT"
-      url: tmpUrl + "/up_vote"
+      url: tmpUrl + "/down_vote"
     ).done ->
       tmp = $(_this).parent().children(".vote_count").html()
       tmp = +tmp - 1

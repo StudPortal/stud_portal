@@ -1,5 +1,6 @@
 class UniversitiesController < ApplicationController
   include VotesSubcontroller
+  include DownloadsSubcontroller
 
   before_action :set_university, only: [:show, :edit, :update, :destroy]
 
@@ -8,6 +9,9 @@ class UniversitiesController < ApplicationController
   def index
     @universities = University.all.paginate(page: params[:page], per_page: Settings.pagination)
     respond_with(@universities)
+  end
+
+  def welcome
   end
 
   def show
@@ -40,6 +44,7 @@ class UniversitiesController < ApplicationController
 
   private
     def set_university
+      binding.pry
       @university = University.find(params[:id])
     end
 

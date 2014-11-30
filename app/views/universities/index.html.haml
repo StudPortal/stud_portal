@@ -1,6 +1,10 @@
 - model_class = University
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+  .row
+    .col-md-10
+      %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+    .col-md-2
+      %span=link_to 'Excel Report', xlsx_universities_path(@university), class: 'btn btn-sm btn-success excel-btn'
 %table.table.table-striped
   %thead
     %tr

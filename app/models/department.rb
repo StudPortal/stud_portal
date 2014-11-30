@@ -3,7 +3,7 @@ class Department
   include VotesCalculation
   
   field :name, type: String
-  field :vote, type: Integer
+  field :vote, type: Integer, default: 0
 
   belongs_to :faculty
   has_many   :groups

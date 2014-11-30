@@ -1,5 +1,6 @@
 class LectorsController < ApplicationController
   include VotesSubcontroller
+  include DownloadsSubcontroller
   
   before_action :set_department
   before_action :set_lector, only: [:show, :edit, :update, :destroy]

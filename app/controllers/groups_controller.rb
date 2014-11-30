@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   include VotesSubcontroller
+  include DownloadsSubcontroller
   
   before_action :set_department
   before_action :set_group, only: [:show, :edit, :update, :destroy]

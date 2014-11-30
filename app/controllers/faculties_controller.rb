@@ -1,5 +1,6 @@
 class FacultiesController < ApplicationController
   include VotesSubcontroller
+  include DownloadsSubcontroller
   
   before_action :set_university
   before_action :set_faculty, only: [:show, :edit, :update, :destroy]

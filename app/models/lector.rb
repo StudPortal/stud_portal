@@ -4,7 +4,7 @@ class Lector
   
   field :name,     type: String
   field :position, type: String
-  field :vote,     type: Integer
+  field :vote,     type: Integer, default: 0
 
   belongs_to :department
 end

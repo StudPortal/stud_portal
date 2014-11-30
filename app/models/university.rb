@@ -6,7 +6,7 @@ class University
   field :name,        type: String
   field :address,     type: String
   field :coordinates, type: Array
-  field :vote,        type: Integer
+  field :vote,        type: Integer, default: 0
 
   has_many :faculties
 

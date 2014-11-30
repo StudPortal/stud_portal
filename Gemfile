@@ -36,6 +36,8 @@ gem 'geocoder'
 gem 'mechanize'
 gem 'faker'
 
+gem 'axlsx'
+
 gem 'settingslogic'
 gem 'will_paginate_mongoid'
 gem 'will_paginate-bootstrap'
