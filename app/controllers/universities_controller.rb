@@ -44,7 +44,6 @@ class UniversitiesController < ApplicationController
 
   private
     def set_university
-      binding.pry
       @university = University.find(params[:id])
     end
 

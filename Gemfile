@@ -26,6 +26,7 @@ gem 'bootstrap_form-datetimepicker'
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
 gem 'font-awesome-rails'
+gem 'social-share-button'
 
 gem 'devise'
 gem 'devise-i18n', '~> 0.11.2'
@@ -37,6 +38,7 @@ gem 'mechanize'
 gem 'faker'
 
 gem 'axlsx'
+gem 'prawn'
 
 gem 'settingslogic'
 gem 'will_paginate_mongoid'
