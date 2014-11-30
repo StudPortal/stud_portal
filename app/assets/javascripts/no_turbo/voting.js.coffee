@@ -1,4 +1,4 @@
-$(document).ready ->
+$(document).on "page:load", ready ->
   $(".like").click ->
     _this  = this
     tmpUrl = $(this).parent().parent().parent().find("a.link-to").attr("href")
