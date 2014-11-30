@@ -17,6 +17,10 @@
  *= require devise_bootstrap_views
  */
 
+ul.nav.navbar-nav{
+    margin-top: 15px;
+}
+
 .navbar.navbar-default.navbar-static-top{
     background-color: rgb(10,10,10);
 }
@@ -40,6 +44,13 @@ button.navbar-toggle{
     width: 20px;
 }
 
+img.navbar-brand{
+    /*width: 150px; !important;*/
+    height: 75px; !important;
+    padding: 0;
+    margin-top: 5px;
+    margin-bottom: -10px;
+}
 
 
 

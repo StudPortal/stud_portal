@@ -22,12 +22,8 @@
     .navbar.navbar-default.navbar-static-top
 
       .container
-        %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
-          %span.icon-bar
-          %span.icon-bar
-          %span.icon-bar
-        %a.navbar-brand(href="/") Students Portal
-        .navbar-collapse.collapse.navbar-responsive-collapse
+        = image_tag "logo.png", :class => 'navbar-brand', :alt => 'Portal for students'
+        .navbar-collapse
           %ul.nav.navbar-nav
             %li= link_to "Universities", "/universities"
           - if user_signed_in?
@@ -42,3 +38,4 @@
       .content
       = bootstrap_flash
       = yield
+
