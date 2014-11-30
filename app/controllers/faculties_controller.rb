@@ -1,5 +1,5 @@
 class FacultiesController < ApplicationController
-  extend VotesSubcontroller
+  include VotesSubcontroller
   
   before_action :set_university
   before_action :set_faculty, only: [:show, :edit, :update, :destroy]

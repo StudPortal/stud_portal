@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  extend VotesSubcontroller
+  include VotesSubcontroller
   
   before_action :set_department
   before_action :set_group, only: [:show, :edit, :update, :destroy]
