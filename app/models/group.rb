@@ -3,5 +3,5 @@ class Group
   
   field :name, type: String
 
-  embedded_in :department
+  belongs_to :department
 end

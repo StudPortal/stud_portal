@@ -16,12 +16,16 @@
         %td.hidden-sm= university.adress
         -#%td= university.lat
         -#%td= university.lng
+        %td= link_to university.name, university_path(university), 'data-no-turbolink' => true
         %td
           - if user_signed_in?
             = link_to t('.edit', :default => t("helpers.links.edit")), edit_university_path(university), :class => 'btn btn-primary btn-xs'
             = link_to t('.destroy', :default => t("helpers.links.destroy")), university_path(university), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
             = link_to 'Add faculty', new_university_faculty_path(university), :class => 'btn btn-info btn-xs'
           = link_to 'Faculties', university_faculties_path(university), :class => 'btn btn-success btn-xs'
+
+%center
+  = will_paginate @universities, renderer: BootstrapPagination::Rails
 
 - if user_signed_in?
   = link_to t('.new', :default => t("helpers.links.new")), new_university_path, :class => 'btn btn-primary'

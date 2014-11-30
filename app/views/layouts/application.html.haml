@@ -15,8 +15,9 @@
     = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
     = favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png'
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
+    %script{:src => "https://maps.googleapis.com/maps/api/js?v=3.exp", :type => "text/javascript"}
     = javascript_include_tag "application"
-
+    
   %body
     .navbar.navbar-default.navbar-static-top
 
@@ -38,5 +39,6 @@
                 = link_to '<span class="glyphicon glyphicon-log-out"></span>'.html_safe, destroy_user_session_path, method: :delete, :class => 'no_ajaxify navbar-link'
 
     .container
+      .content
       = bootstrap_flash
       = yield

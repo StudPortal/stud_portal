@@ -3,6 +3,6 @@ class Faculty
   
   field :name, type: String
 
-  embedded_in :university
-  embeds_many :departments
+  belongs_to :university
+  has_many :departments
 end

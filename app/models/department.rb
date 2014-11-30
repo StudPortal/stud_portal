@@ -3,7 +3,7 @@ class Department
   
   field :name, type: String
 
-  embedded_in :faculty
-  embeds_many :groups
-  embeds_many :lectors
+  belongs_to :faculty
+  has_many   :groups
+  has_many   :lectors
 end

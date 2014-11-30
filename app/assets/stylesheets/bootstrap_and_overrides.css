@@ -1,4 +1,16 @@
-@import url("//fonts.googleapis.com/css?family=Lato:300,400,700");
+/*
+  =require twitter-bootstrap-static/bootstrap
+
+  Use Font Awesome icons (default)
+  To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
+  =require twitter-bootstrap-static/fontawesome
+*/
+
+.content{ margin-top: -50px; }
+.map_panel{ width: 830px; }
+#map{ width: 800px; height: 400px; }
+
+@import url("//fonts.googleapis.com/css?family=Roboto:300,400,500");
 /*!
  * bootswatch v3.3.1+2
  * Homepage: http://bootswatch.com

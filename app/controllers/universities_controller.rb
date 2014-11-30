@@ -4,7 +4,7 @@ class UniversitiesController < ApplicationController
   respond_to :json, :html
 
   def index
-    @universities = University.all
+    @universities = University.all.paginate(:page => params[:page], :per_page => 15)
     respond_with(@universities)
   end
 
@@ -42,6 +42,6 @@ class UniversitiesController < ApplicationController
     end
 
     def university_params
-      params.require(:university).permit(:name, :adress, :lat, :lng)
+      params = params.require(:university).permit(:name, :address, :coordinates)
     end
 end
