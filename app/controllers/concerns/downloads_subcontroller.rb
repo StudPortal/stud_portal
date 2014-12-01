@@ -6,12 +6,12 @@ module DownloadsSubcontroller
 
     package   = Axlsx::Package.new
     workbook  = package.workbook
-    @data     = model.constantize.all
+    data      = model.constantize.all
   
     workbook.add_worksheet(name: "#{model} report") do |sheet|
       fields = model.constantize.attribute_names
       sheet.add_row fields
-      @data.each do |record|
+      data.each do |record|
         sheet.add_row fields.map{ |field| record.send(field) }
       end
     end
@@ -24,12 +24,12 @@ module DownloadsSubcontroller
 
   def pdf
     model = self.class.name.sub('Controller', '').singularize
-    @data = model.constantize.all
+    data  = model.constantize.all
  
     respond_to do |format|
       format.html
       format.pdf do
-        pdf = ReportPdf.new(@data)
+        pdf = ReportPdf.new(data)
         send_data pdf.render, filename: "#{model}.pdf", type: 'application/pdf'
       end
     end    
