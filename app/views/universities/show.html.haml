@@ -22,7 +22,7 @@
     
 :javascript
   function initialize() {
-    var myLatlng = new google.maps.LatLng(#{@university.coordinates.first},#{@university.coordinates.last});
+    var myLatlng = new google.maps.LatLng(#{@university.coordinates.last},#{@university.coordinates.first});
     var mapOptions = {
       zoom: 4,
       center: myLatlng
