@@ -1,5 +1,6 @@
 class Lector
   include Mongoid::Document
+  include Mongoid::Slug
   include VotesCalculation
   
   field :name,     type: String
@@ -7,4 +8,6 @@ class Lector
   field :vote,     type: Integer, default: 0
 
   belongs_to :department
+  
+  slug :name
 end

@@ -1,5 +1,6 @@
 class Faculty
   include Mongoid::Document
+  include Mongoid::Slug
   include VotesCalculation
   
   field :name, type: String
@@ -7,4 +8,6 @@ class Faculty
 
   belongs_to :university
   has_many   :departments
+  
+  slug :name
 end
