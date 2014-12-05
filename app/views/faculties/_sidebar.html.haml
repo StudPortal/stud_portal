@@ -1,0 +1,14 @@
+.sidebar
+  = nav_pills do
+    = nav_pill 'Main info',   university_faculty_path(@university, @faculty)
+    = nav_pill 'Departments', units_university_faculty_path(@university, @faculty)
+    = nav_pill 'Raiting',     raiting_university_faculty_path(@university, @faculty)
+
+  %center.social
+    = social_share_button_tag @university.name, url: university_faculty_path(@university, @faculty)
+
+  - if user_signed_in?
+    %ul.nav.nav-pills.university_actions
+      %li= link_to t('.back', :default => t("helpers.links.back")), university_faculties_path(@university), :class => 'btn btn-default'
+      %li= link_to t('.edit', :default => t("helpers.links.edit")), edit_university_faculty_path(@university, @faculty), :class => 'btn btn-default'
+      %li= link_to t('.destroy', :default => t("helpers.links.destroy")), university_faculty_path(@university, @faculty), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

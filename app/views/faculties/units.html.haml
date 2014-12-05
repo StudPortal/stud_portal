@@ -1,0 +1,37 @@
+.page-header
+  %h3 #{@faculty.name}
+
+.row
+  .col-md-3
+    = render 'sidebar'
+  .col-md-9    
+
+    %table.table
+      %thead
+        %tr
+          %th Department
+          %th Raiting
+          %th=t '.actions', :default => t("helpers.actions")
+      %tbody
+        - @departments.each do |department|
+          %tr
+            %td= link_to department.name, university_faculty_department_path(@university, @faculty, department), class: 'link-to'
+            %td
+              %h4.vote_count= department.vote
+              .like
+              .dislike      
+            %td
+              - if user_signed_in?
+                = link_to t('.edit', :default => t("helpers.links.edit")), edit_university_faculty_department_path(@university, @faculty, department), :class => 'btn btn-default btn-xs'
+                = link_to t('.destroy', :default => t("helpers.links.destroy")), university_faculty_department_path(@university, @faculty, department), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
+                = link_to 'add group', new_university_faculty_department_group_path(@university, @faculty, department), :class => 'btn btn-info btn-xs'
+                = link_to 'add lector', new_university_faculty_department_lector_path(@university, @faculty, department), :class => 'btn btn-info btn-xs'
+              = link_to 'groups', university_faculty_department_groups_path(@university, @faculty, department), :class => 'btn btn-primary btn-xs'
+              = link_to 'lectors', university_faculty_department_lectors_path(@university, @faculty, department), :class => 'btn btn-primary btn-xs'
+
+    .row
+      .col-md-3
+        - if user_signed_in?
+          = link_to 'add department', new_university_faculty_department_path(@university, @faculty), :class => 'btn btn-primary'
+      .col-md-9 
+        = will_paginate @departments, renderer: BootstrapPagination::Rails

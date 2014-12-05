@@ -3,7 +3,7 @@ class FacultiesController < ApplicationController
   include DownloadsSubcontroller
   
   before_action :set_university
-  before_action :set_faculty, only: [:show, :edit, :update, :destroy]
+  before_action :set_faculty, only: [:show, :edit, :update, :destroy, :units, :raiting]
 
   respond_to :json, :html
 
@@ -14,6 +14,15 @@ class FacultiesController < ApplicationController
 
   def show
     respond_with(@university, @faculty)
+  end
+
+  def units
+    @departments = @faculty.departments.paginate(page: params[:page], per_page: Settings.pagination)
+  end
+
+  def raiting
+    @raiting = {}
+    @faculty.departments.each{ |f| @raiting[f.name] = f.vote }
   end
 
   def new

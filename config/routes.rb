@@ -11,16 +11,20 @@ Rails.application.routes.draw do
     put :down_vote    
   end
 
-  resources :universities do
-    votes.call
-
+  navigation = lambda do
     member do 
-      get 'address'
       get 'units'
       get 'raiting'
-    end
+    end    
+  end
+
+  resources :universities do
+    navigation.call
+    votes.call
+    member{ get 'address' }
 
     resources :faculties do
+      navigation.call
       votes.call
 
       resources :departments do
