@@ -27,10 +27,6 @@ class UniversitiesController < ApplicationController
     @faculties = @university.faculties.paginate(page: params[:page], per_page: Settings.pagination)
   end
 
-  def lectors
-    respond_with(@university)
-  end
-
   def raiting
     respond_with(@university)
   end
@@ -70,6 +66,6 @@ class UniversitiesController < ApplicationController
     end
 
     def university_params
-      params.require(:university).permit(:name, :address, :coordinates, :vote)
+      params.require(:university).permit(:name, :address, :coordinates, :vote, :description)
     end
 end

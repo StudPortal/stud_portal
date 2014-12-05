@@ -50,6 +50,6 @@ class FacultiesController < ApplicationController
     end
 
     def faculty_params
-      params.require(:faculty).permit(:name, :vote)
+      params.require(:faculty).permit(:name, :vote, :description)
     end
 end

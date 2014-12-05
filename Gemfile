@@ -25,6 +25,7 @@ gem 'bootstrap_form'
 gem 'bootstrap_form-datetimepicker'
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
+gem 'bootstrap-wysihtml5-rails'
 gem 'font-awesome-rails'
 gem 'social-share-button'
 

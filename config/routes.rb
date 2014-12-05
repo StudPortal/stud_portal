@@ -17,7 +17,6 @@ Rails.application.routes.draw do
     member do 
       get 'address'
       get 'units'
-      get 'lectors'
       get 'raiting'
     end
 

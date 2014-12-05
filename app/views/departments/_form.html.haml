@@ -4,5 +4,10 @@
     .controls
       = f.text_field :name, class: 'form-control', required: true
     = error_span(@department[:name])
+  .form-group
+    = f.label :description, class: 'control-label'
+    .controls
+      = f.text_area  :description, class: 'form-control wysihtml5', required: true
+    = error_span(@department[:description])    
   = f.submit nil,class: 'btn btn-primary'
   = link_to t('.cancel', :default => t("helpers.links.cancel")), university_faculty_departments_path(@university, @faculty), :class => 'btn btn-default'

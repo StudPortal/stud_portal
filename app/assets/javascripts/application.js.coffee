@@ -14,4 +14,5 @@
 #= require jquery_ujs
 #= require twitter/bootstrap
 #= require social-share-button
+#= require bootstrap-wysihtml5
 #= require_tree .

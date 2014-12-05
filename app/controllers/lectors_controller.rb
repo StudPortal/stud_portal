@@ -52,6 +52,6 @@ class LectorsController < ApplicationController
     end
 
     def lector_params
-      params.require(:lector).permit(:name, :position, :vote)
+      params.require(:lector).permit(:name, :position, :vote, :description)
     end
 end

@@ -8,6 +8,11 @@
   = @group.name
 
 
+%p
+  %strong= model_class.human_attribute_name(:description) + ':'
+  %br
+  = @group.description.html_safe
+
 = link_to t('.back', :default => t("helpers.links.back")), university_faculty_department_groups_path(@university, @faculty, @department), :class => 'btn btn-default'
 = link_to t('.edit', :default => t("helpers.links.edit")), edit_university_faculty_department_group_path(@university, @faculty, @department, @group), :class => 'btn btn-default'
 = link_to t('.destroy', :default => t("helpers.links.destroy")), university_faculty_department_group_path(@university, @faculty, @department, @group), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

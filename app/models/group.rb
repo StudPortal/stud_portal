@@ -3,8 +3,9 @@ class Group
   include Mongoid::Slug
   include VotesCalculation
   
-  field :name, type: String
-  field :vote, type: Integer, default: 0
+  field :name,        type: String
+  field :description, type: String,  default: ''
+  field :vote,        type: Integer, default: 0
 
   belongs_to :department
   

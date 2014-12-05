@@ -5,9 +5,10 @@ class University
   include VotesCalculation
 
   field :name,        type: String
+  field :description, type: String,  default: ''
+  field :vote,        type: Integer, default: 0
   field :address,     type: String
   field :coordinates, type: Array
-  field :vote,        type: Integer, default: 0
 
   has_many :faculties
   

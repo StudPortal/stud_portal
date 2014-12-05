@@ -7,6 +7,10 @@
   %br
   = @faculty.name
 
+%p
+  %strong= model_class.human_attribute_name(:description) + ':'
+  %br
+  = @faculty.description.html_safe
 
 = link_to t('.back', :default => t("helpers.links.back")), university_faculties_path(@university), :class => 'btn btn-default'
 = link_to t('.edit', :default => t("helpers.links.edit")), edit_university_faculty_path(@university, @faculty), :class => 'btn btn-default'
