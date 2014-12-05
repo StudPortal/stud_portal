@@ -2,7 +2,7 @@ class UniversitiesController < ApplicationController
   include VotesSubcontroller
   include DownloadsSubcontroller
 
-  before_action :set_university, only: [:show, :edit, :update, :destroy]
+  before_action :set_university, only: [:show, :edit, :update, :destroy, :address, :units, :lectors, :raiting]
 
   respond_to :json, :html
 
@@ -18,6 +18,27 @@ class UniversitiesController < ApplicationController
   def show
     respond_with(@university)
   end
+
+  def address
+    respond_with(@university)
+  end
+
+  def units
+    @faculties = @university.faculties.paginate(page: params[:page], per_page: Settings.pagination)
+  end
+
+  def lectors
+    respond_with(@university)
+  end
+
+  def raiting
+    respond_with(@university)
+  end
+
+  def show
+    respond_with(@university)
+  end
+
 
   def new
     @university = University.new

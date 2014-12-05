@@ -3,7 +3,7 @@ defaults: &defaults
     email:    admin@example.com
     password: admin12345
 
-  pagination: 15
+  pagination: 10
 
   fake_records:
     count: 20

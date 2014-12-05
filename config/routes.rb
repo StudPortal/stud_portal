@@ -14,6 +14,13 @@ Rails.application.routes.draw do
   resources :universities do
     votes.call
 
+    member do 
+      get 'address'
+      get 'units'
+      get 'lectors'
+      get 'raiting'
+    end
+
     resources :faculties do
       votes.call
 
