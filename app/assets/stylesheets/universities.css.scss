@@ -10,10 +10,29 @@
   }
 
   .social{
-    margin-top: 30px;
+    margin-top: 50px;
     margin-left: 30px;
     margin-right: 30px;
     margin-bottom: 30px;
+
+    .social-share-button-twitter {
+      background: url("/assets/twitter-icon.png") no-repeat;
+      height: 32px;
+      width: 32px;
+    }
+
+    .social-share-button-facebook {
+      background: url("/assets/facebook-icon.png") no-repeat;
+      height: 32px;
+      width: 32px;
+    }
+
+    .social-share-button-google_plus {
+      background: url("/assets/google-plus-icon.png") no-repeat;
+      height: 32px;
+      width: 32px;
+    }
+
   }
 
   .university_actions {
