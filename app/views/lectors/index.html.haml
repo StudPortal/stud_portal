@@ -5,7 +5,7 @@
       %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
     .col-md-3
       %span=link_to 'Pdf Report', pdf_university_faculty_department_lectors_path(@university, @faculty, @department), class: 'btn btn-sm btn-danger excel-btn'
-%table.table.table-striped
+%table.table
   %thead
     %tr
       %th= model_class.human_attribute_name(:name)
@@ -19,10 +19,9 @@
         %td= link_to lector.name, university_faculty_department_lector_path(@university, @faculty, @department, lector), class: 'link-to'
         %td= lector.position
         %td
-          .btn-group.group
-            %button.btn.btn-default.btn-xs.like{type: 'button'} like
-            %button.btn.btn-primary.btn-xs.active.vote_count= lector.vote
-            %button.btn.btn-default.btn-xs.dislike{type: 'button'} dislike
+          %h4.vote_count= lector.vote
+          .like
+          .dislike
         - if user_signed_in?
           %td
             = link_to t('.edit', :default => t("helpers.links.edit")), edit_university_faculty_department_lector_path(@university, @faculty, @department, lector), :class => 'btn btn-default btn-xs'

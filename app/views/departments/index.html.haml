@@ -6,7 +6,7 @@
     .col-md-3
       %span=link_to 'Excel Report', xlsx_university_faculty_departments_path(@university, @faculty), class: 'btn btn-sm btn-success excel-btn'
       %span=link_to 'Pdf Report', pdf_university_faculty_departments_path(@university, @faculty), class: 'btn btn-sm btn-danger excel-btn'
-%table.table.table-striped
+%table.table
   %thead
     %tr
       %th= model_class.human_attribute_name(:name)
@@ -17,10 +17,9 @@
       %tr
         %td= link_to department.name, university_faculty_department_path(@university, @faculty, department), class: 'link-to'
         %td
-          .btn-group.group
-            %button.btn.btn-default.btn-xs.like{:type => 'button', 'data-no-turbolink' => true} like
-            %button.btn.btn-primary.btn-xs.active.vote_count= department.vote
-            %button.btn.btn-default.btn-xs.dislike{:type => 'button', 'data-no-turbolink' => true} dislike        
+          %h4.vote_count= department.vote
+          .like
+          .dislike      
         %td
           - if user_signed_in?
             = link_to t('.edit', :default => t("helpers.links.edit")), edit_university_faculty_department_path(@university, @faculty, department), :class => 'btn btn-default btn-xs'

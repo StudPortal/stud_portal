@@ -7,8 +7,31 @@
 */
 .excel-btn{ margin-top:40px; }
 .logo img{ width: 50px; height: 50px; position: relative; margin-top:-15px; margin-left:20px;}
-.like, .dislike{ width: 60px; }
-.vote_count{ width: 40px; background: #2196f3;}
+
+.like {
+  background: url("/assets/like.png") no-repeat;
+  height: 32px;
+  width: 32px;
+  display: inline-block;
+  margin: 0px 0px -10px 0px;
+  padding: 0px 0px 0px 0px;
+}
+
+.dislike {
+  background: url("/assets/dislike.png") no-repeat;
+  height: 32px;
+  width: 32px;
+  display: inline-block;
+  margin: 0px 0px -10px 0px;
+  padding: 0px 0px 0px 0px;
+}
+
+.vote_count {
+  display: inline-block;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+}
+
 .new_session{ width: 450px; text-align: left; }
 .content{ position: relative; margin-top: -50px;}
 
