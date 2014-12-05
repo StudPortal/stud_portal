@@ -7,11 +7,21 @@
   .col-md-9        
     %table.table.table-condensed
       %thead
-        %th Faculties
+        %tr
+          %th Faculty
+          %th Raiting
+          %th=t '.actions', :default => t("helpers.actions")
       %tbody
         - @faculties.each do |faculty|
           %tr
-            %td= link_to faculty.name, university_faculty_path(@university, faculty)
-        
-    %center
-      = will_paginate @faculties, renderer: BootstrapPagination::Rails
+            %td= link_to faculty.name, university_faculty_path(@university, faculty), class: 'link-to'
+            %td
+              %h4.vote_count= faculty.vote
+              .like
+              .dislike
+            %td
+              - if user_signed_in?
+                = link_to t('.edit', :default => t("helpers.links.edit")), edit_university_faculty_path(@university, faculty), :class => 'btn btn-default btn-xs'
+                = link_to t('.destroy', :default => t("helpers.links.destroy")), university_faculty_path(@university, faculty), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
+                = link_to 'add department', new_university_faculty_department_path(@university, faculty), :class => 'btn btn-info btn-xs'
+              = link_to 'departments', university_faculty_departments_path(@university, faculty), :class => 'btn btn-primary btn-xs'

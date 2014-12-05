@@ -5,7 +5,10 @@
   .col-md-3
     = render 'sidebar'
   .col-md-9
-    %h3 Faculties raiting
+    %h3 
+      University raiting:
+      %span.label.label-warning #{@university.vote} votes
+    %h3 Faculties raiting:
     = javascript_include_tag "//www.google.com/jsapi", "chartkick"
     = pie_chart @raiting
   
