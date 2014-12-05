@@ -28,7 +28,8 @@ class UniversitiesController < ApplicationController
   end
 
   def raiting
-    respond_with(@university)
+    @raiting = {}
+    @university.faculties.each{ |f| @raiting[f.name] = f.vote }
   end
 
   def show
