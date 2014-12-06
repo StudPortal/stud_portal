@@ -1,0 +1,16 @@
+.sidebar
+  = nav_pills do
+    = nav_pill 'Main info',       university_faculty_department_path(@university, @faculty, @department)
+    = nav_pill 'Lectors',         lectors_unit_university_faculty_department_path(@university, @faculty, @department)
+    = nav_pill 'Groups',          groups_unit_university_faculty_department_path(@university, @faculty, @department)
+    = nav_pill 'Lectors Raiting', lectors_raiting_university_faculty_department_path(@university, @faculty, @department)
+    = nav_pill 'Groups Raiting',  groups_raiting_university_faculty_department_path(@university, @faculty, @department)
+
+  %center.social
+    = social_share_button_tag @university.name, url: university_faculty_department_path(@university, @faculty, @department)
+
+  - if user_signed_in?
+    %ul.nav.nav-pills.university_actions
+      %li= link_to t('.back', :default => t("helpers.links.back")), university_faculty_departments_path(@university, @faculty), :class => 'btn btn-default'
+      %li= link_to t('.edit', :default => t("helpers.links.edit")), edit_university_faculty_department_path(@university, @faculty, @department), :class => 'btn btn-default'
+      %li= link_to t('.destroy', :default => t("helpers.links.destroy")), university_faculty_department_path(@university, @faculty, @department), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

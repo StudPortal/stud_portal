@@ -1,0 +1,14 @@
+.page-header
+  %h3 #{@department.name}
+
+.row
+  .col-md-3
+    = render 'sidebar'
+  .col-md-9
+    %h3 
+      Groups raiting:
+      %span.label.label-warning #{@department.vote} votes
+    %h3 Departments raiting:
+    = javascript_include_tag "//www.google.com/jsapi", "chartkick"
+    = pie_chart @groups_raiting
+  

@@ -3,7 +3,7 @@ class DepartmentsController < ApplicationController
   include DownloadsSubcontroller
 
   before_action :set_faculty
-  before_action :set_department, only: [:show, :edit, :update, :destroy]
+  before_action :set_department, only: [:show, :edit, :update, :destroy, :groups_unit, :lectors_unit, :groups_raiting, :lectors_raiting]
 
   respond_to :json, :html
 
@@ -14,6 +14,24 @@ class DepartmentsController < ApplicationController
 
   def show
     respond_with(@university, @faculty, @department)
+  end
+
+  def groups_unit
+    @groups = @department.groups.paginate(page: params[:page], per_page: Settings.pagination)
+  end
+
+  def lectors_unit
+    @lectors = @department.lectors.paginate(page: params[:page], per_page: Settings.pagination)
+  end
+
+  def groups_raiting
+    @groups_raiting = {}
+    @department.groups.each{ |g| @groups_raiting[g.name] = g.vote }
+  end
+
+  def lectors_raiting
+    @lectors_raiting = {}
+    @department.lectors.each{ |l| @lectors_raiting[l.name] = l.vote }
   end
 
   def new
@@ -41,6 +59,7 @@ class DepartmentsController < ApplicationController
   end
 
   private
+
     def set_department
       @department = @faculty.departments.find(params[:id])
     end
@@ -53,4 +72,5 @@ class DepartmentsController < ApplicationController
     def department_params
       params.require(:department).permit(:name, :vote, :description)
     end
+    
 end

@@ -1,0 +1,37 @@
+.page-header
+  %h3 #{@department.name}
+
+.row
+  .col-md-3
+    = render 'sidebar'
+  .col-md-9    
+
+    %table.table
+      %thead
+        %tr
+          %th Lector
+          %th Raiting
+          - if user_signed_in?
+            %th=t '.actions', :default => t("helpers.actions")
+      %tbody
+        - @lectors.each do |lector|
+          %tr
+            %td= link_to lector.name, university_faculty_department_lector_path(@university, @faculty, @department, lector), class: 'link-to'
+            %td
+              %h4.vote_count= lector.vote
+              .like
+              .dislike
+            - if user_signed_in?
+              %td
+                = link_to t('.edit', :default => t("helpers.links.edit")), edit_university_faculty_department_lector_path(@university, @faculty, @department, lector), :class => 'btn btn-default btn-xs'
+                = link_to t('.destroy', :default => t("helpers.links.destroy")), university_faculty_department_lector_path(@university, @faculty, @department, lector), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
+
+    .row
+      .col-md-3
+        - if user_signed_in?
+          = link_to t('.new', :default => t("helpers.links.new")), new_university_faculty_department_lector_path(@university, @faculty, @department), :class => 'btn btn-primary'
+      .col-md-9 
+        = will_paginate @lectors, renderer: BootstrapPagination::Rails
+
+
+        
